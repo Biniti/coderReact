@@ -1,10 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
+import React, { useContext } from "react";
 import { View, FlatList, Alert } from "react-native";
 import { ListItem, Avatar, Button, Icon } from "react-native-elements";
-import { users } from "../../services/Users";
+import UserContext from "../../context/UserContext"
 
 const UserList = ({ navigation }) => {
+
+  const {state} = useContext(UserContext)
+
   const confirmUserDelete = (user) => {
     Alert.alert("Excluir Usuario", "Deseja excluir usuario?", [
       {
@@ -23,7 +25,7 @@ const UserList = ({ navigation }) => {
     <View>
       <FlatList
         keyExtractor={(user) => user.id.toString()}
-        data={users}
+        data={state.users}
         renderItem={({ item: user }) => {
           return (
             <ListItem

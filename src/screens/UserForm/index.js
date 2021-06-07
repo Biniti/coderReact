@@ -9,21 +9,20 @@ const UserForm = ({route, navigation}) =>{
             <Text>Name</Text>
             <TextInput
              style={styles.input} 
-             onChageText = { (name) =>{setUser({...user, name})}}
-             placeholder = "Informe o Nome"
-             value={getUser.name}
+             onChageText={ name => setUser({...getUser, name})}
+             placeholder="Informe o Nome"
             />
             <Text>Email</Text>
             <TextInput
              style={styles.input} 
-             onChageText = { (email) =>{setUser({...user, email})}}
+             onChageText={ (email) =>{setUser({...getUser, email})}}
              placeholder = "Informe o Email"
              value={getUser.email}
             />
             <Text>URL do Avatar</Text>
             <TextInput
              style={styles.input} 
-             onChageText = { (photo) =>{setUser({...user, photo})}}
+             onChageText={ (photo) =>{setUser({...getUser, photo})}}
              placeholder = "Informe a URL do avatar"
              value={getUser.photo}
             />
